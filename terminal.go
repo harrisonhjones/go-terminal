@@ -2,7 +2,6 @@ package terminal
 
 import (
 	"bufio"
-	"errors"
 	"fmt"
 	"io"
 	"os"
@@ -19,6 +18,7 @@ var (
 )
 
 const (
+	// Optional is a convenience constant to help define an input as optional.
 	Optional = ""
 )
 
@@ -53,19 +53,19 @@ func Input(name string, val ...string) (string, error) {
 		if len(val) > 0 {
 			return val[0], nil
 		}
-		return "", errors.New(fmt.Sprintf("failed to read required input %s", name))
+		return "", fmt.Errorf("failed to read required input %s", name)
 	}
 	str = strings.TrimSpace(str)
 	if str == "" {
 		if len(val) > 0 {
 			return val[0], nil
 		}
-		return "", errors.New(fmt.Sprintf("required input %s cannot be blank", name))
+		return "", fmt.Errorf("required input %s cannot be blank", name)
 	}
 	return str, nil
 }
 
-// MustInput is a continent form of Input which panics if an error is returned.
+// MustInput is a convenient form of Input which panics if an error is returned.
 func MustInput(name string, val ...string) string {
 	s, err := Input(name, val...)
 	if err != nil {

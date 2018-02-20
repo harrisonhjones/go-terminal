@@ -4,7 +4,7 @@
 [![GoCard][3]][4]
 
 [1]: https://godoc.org/harrisonhjones.com/go-terminal?status.svg
-[2]: https://godoc.org/harrisonhjones.com/go-terminal?status.svg
+[2]: https://godoc.org/harrisonhjones.com/go-terminal
 [3]: https://goreportcard.com/badge/harrisonhjones.com/go-terminal?status.svg
 [4]: https://goreportcard.com/report/harrisonhjones.com/go-terminal?status.svg
 
